@@ -8,10 +8,22 @@ const workoutSchema = new Schema({
     },
     cardio: Boolean,
     resistance: Boolean,
-    reps: Number,
-    load: Number,
-    distance: Number,
-    duration: Number
+    reps: {
+        type: Number,
+        required: function () { return this.resistance === true || this.cardio === false; }
+    },
+    load: {
+        type: Number,
+        required: function () { return this.resistance === true; }
+    },
+    distance: {
+        type: Number,
+        required: function () { return this.cardio === true; }
+    },
+    duration: {
+        type: Number,
+        required: function () { return this.cardio === true; }
+    },
 }, { timestamps: true })
 
 module.exports = mongoose.model("Workout", workoutSchema)
