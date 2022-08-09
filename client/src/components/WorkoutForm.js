@@ -1,6 +1,9 @@
 import { useState } from "react"
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
 const WorkoutForm = () => {
+    const { dispatch } = useWorkoutsContext()
+    const [error, setError] = useState(null)
     const [radioButton, setRadioButton] = useState("")
     const [workoutData, setWorkoutData] = useState({
         title: "",
@@ -33,19 +36,23 @@ const WorkoutForm = () => {
 
         const json = await response.json()
 
-        setWorkoutData({
-            title: "",
-            cardio: false,
-            resistance: false,
-            load: "",
-            reps: "",
-            distance: "",
-            duration: ""
-        })
-
-        setRadioButton("")
-
-        console.log("New Workout Added", json)
+        if (!response.ok) {
+            setError(json.error)
+        } else {
+            setError(null)
+            setWorkoutData({
+                title: "",
+                cardio: false,
+                resistance: false,
+                load: "",
+                reps: "",
+                distance: "",
+                duration: ""
+            })
+            setRadioButton("")
+            console.log("New Workout Added", json)
+            dispatch({ type: "CREATE", payload: json })
+        }
     }
 
     let formData = <p></p>
@@ -133,6 +140,7 @@ const WorkoutForm = () => {
             </div>
             {formData}
             <button>Add Workout</button>
+            {error && <div className="error">{error}</div>}
         </form>
     )
 }
