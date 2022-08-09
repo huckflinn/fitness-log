@@ -46,10 +46,7 @@ const EditWorkoutForm = ({ toggleIsEditing, workout }) => {
                 <label>Load (kg):</label>
                 <input
                     type="number"
-                    onChange={(e) => {
-                        setWorkoutData({ ...workoutData, load: e.target.value })
-                        console.log(workoutData)
-                    }}
+                    onChange={(e) => setWorkoutData({ ...workoutData, load: e.target.value })}
                     value={!workoutData.load ? "" : workoutData.load}
                 />
             </div>
@@ -58,10 +55,7 @@ const EditWorkoutForm = ({ toggleIsEditing, workout }) => {
                 <label>Reps:</label>
                 <input
                     type="number"
-                    onChange={(e) => {
-                        setWorkoutData({ ...workoutData, reps: e.target.value })
-                        console.log(workoutData)
-                    }}
+                    onChange={(e) => setWorkoutData({ ...workoutData, reps: e.target.value })}
                     value={!workoutData.reps ? "" : workoutData.reps}
                 />
             </div>
@@ -72,10 +66,7 @@ const EditWorkoutForm = ({ toggleIsEditing, workout }) => {
                 <label>Distance (meters):</label>
                 <input
                     type="number"
-                    onChange={(e) => {
-                        setWorkoutData({ ...workoutData, distance: e.target.value })
-                        console.log(workoutData)
-                    }}
+                    onChange={(e) => setWorkoutData({ ...workoutData, distance: e.target.value })}
                     value={!workoutData.distance ? "" : workoutData.distance}
                 />
             </div>
@@ -84,10 +75,7 @@ const EditWorkoutForm = ({ toggleIsEditing, workout }) => {
                 <label>Duration (minutes):</label>
                 <input
                     type="number"
-                    onChange={(e) => {
-                        setWorkoutData({ ...workoutData, duration: e.target.value })
-                        console.log(workoutData)
-                    }}
+                    onChange={(e) => setWorkoutData({ ...workoutData, duration: e.target.value })}
                     value={!workoutData.duration ? "" : workoutData.duration}
                 />
             </div>
@@ -102,10 +90,7 @@ const EditWorkoutForm = ({ toggleIsEditing, workout }) => {
                 <label>Exercise Title:</label>
                 <input
                     type="text"
-                    onChange={(e) => {
-                        setWorkoutData({ ...workoutData, title: e.target.value })
-                        console.log(workoutData)
-                    }}
+                    onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })}
                     value={workoutData.title}
                 />
             </div>
