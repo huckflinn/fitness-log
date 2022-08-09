@@ -3,7 +3,6 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 import WorkoutDetails from '../components/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
-import "./Home.css"
 
 const Home = () => {
     const { workouts, dispatch } = useWorkoutsContext()
